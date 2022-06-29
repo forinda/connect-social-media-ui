@@ -1,4 +1,5 @@
 import HomeComponent from "pages/HomeComponent"
+import React from "react"
 import HomeLogin from "pages/HomeLogin"
 import HomeRegistration from "pages/HomeRegistration"
 
@@ -8,4 +9,4 @@ const HomeSwitcher = ({ page, setPage }: HomepageTypes) => (
       page === "login" ? <HomeLogin page={page} setPage={setPage} /> : page === "register" ? <HomeRegistration page={page} setPage={setPage} /> : <HomeComponent page={page} setPage={setPage} />
    )
 )
-export default HomeSwitcher
+export default React.memo(HomeSwitcher)
