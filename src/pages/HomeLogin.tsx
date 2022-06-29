@@ -15,7 +15,7 @@ const HomeLogin = ({setPage}:HomeLoginPageType) => {
       <form action="" className='flex flex-col gap-5 w-full'>
         {
           loginFields.map((field) => (
-            <div className='flex flex-col w-full'>
+            <div className='flex flex-col w-full' key={field.name}>
               <label htmlFor={field.name} className='text-white font-bold text-xl'>{field.label}</label>
               <input {...field} className="focus:right-0 border rounded-sm" />
             </div>
