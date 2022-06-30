@@ -5,6 +5,7 @@ import Welcome from 'pages/Welcome'
 import ProfileAbout from 'pages/ProfileAbout'
 import ProfileFollowers from 'pages/ProfileFollowers'
 import ProfilePosts from 'pages/ProfilePosts'
+import ProfileFollowings from 'pages/ProfileFollowings'
 
 const App = () => {
   return (
@@ -15,6 +16,7 @@ const App = () => {
           <Route index element={<ProfileAbout/>}/>
           <Route path='followers' element={<ProfileFollowers/>}/>
           <Route path='posts' element={<ProfilePosts/>}/>
+          <Route path='followings' element={<ProfileFollowings/>}/>
         </Route>
       </Routes>
     </HashRouter>
