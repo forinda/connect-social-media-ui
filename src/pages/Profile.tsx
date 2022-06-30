@@ -42,7 +42,7 @@ const Profile = () => {
                     </div>
                 </div>
             </div>
-            <div className='flex border-b border-slate-300 gap-4 py-1 text-center'>
+            <div className='flex border-b border-slate-300 gap-4 py-1 text-center px-4'>
                 {
                     links.map((link) => (
                             <Link to={link.link} className={`w-full h-full p-1 ${location === link.link&&'bg-blue-500 text-white'}`}>{link.title}</Link>
