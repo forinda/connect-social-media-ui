@@ -21,9 +21,7 @@ const HomeSidebar = () => {
 					<h2>{username}</h2>
 				</div>
 			</div>
-      <div>
-        <button className='p-1 bg-red-400 w-full'>Logout</button>
-      </div>
+     
       <hr />
       {/* Quick links */}
       <div className=''>
@@ -35,6 +33,10 @@ const HomeSidebar = () => {
           <li><Link to={"/"} className="w-full flex items-center py-1 px-2 rounded-md gap-2 hover:bg-slate-300 text-xl "><FontAwesomeIcon icon={faUsersCog}/> Followings</Link></li>
           <li><Link to={"/"} className="w-full flex items-center py-1 px-2 rounded-md gap-2 hover:bg-slate-300 text-xl "><FontAwesomeIcon icon={faFeed}/> Posts</Link></li>
         </ul>
+      </div>
+	  <hr />
+	  <div>
+        <button className='py-2 text-white bg-red-400 w-full rounded-lg'>Logout</button>
       </div>
 		</div>
 	);

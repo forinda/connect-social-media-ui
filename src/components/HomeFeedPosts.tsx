@@ -1,4 +1,4 @@
-import { faThumbsUp } from '@fortawesome/free-solid-svg-icons';
+import { faEye, faHeart, faMessage, faThumbsUp } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 
@@ -7,7 +7,7 @@ const HomeFeedPosts = () => {
 		<div className='w-full p-4'>
 			<ul className="flex flex-col items-center space-y-4">
 				{[1, 2, 3, 4].map((post) => (
-					<li className='w-full max-w-[30rem] flex flex-col gap1 shadow-2xl'>
+					<li className='w-full max-w-[30rem] flex flex-col gap1 shadow-2xl rounded-lg'>
 						<div></div>
 						<div className='h-[25rem] w-full'>
                             <img src="/post.webp" alt="" className='w-full h-full object-cover' />
@@ -20,9 +20,14 @@ const HomeFeedPosts = () => {
 								in maxime esse!
 							</p>
 						</div>
-						<div className='grid grid-cols-2'>
-							<button className='w-full py-1'><FontAwesomeIcon icon={faThumbsUp} color={"blue"}/> Like</button>
-							<button className='w-full py-1'>Comment</button>
+						<div className='grid grid-cols-3 text-center'>
+							<span>30 <FontAwesomeIcon icon={faHeart} color="red"/></span>
+							<span>30 <FontAwesomeIcon icon={faEye}/></span>
+							<span>30 <FontAwesomeIcon icon={faMessage} color="blue"/></span>
+						</div>
+						<div className='grid grid-cols-2 mb-2'>
+							<button className='w-full py-1 hover:bg-slate-200 rounded-md'><FontAwesomeIcon icon={faThumbsUp} color={"blue"}/> Like</button>
+							<button className='w-full py-1 hover:bg-slate-200 rounded-md'>Comment</button>
 						</div>
 					</li>
 				))}
