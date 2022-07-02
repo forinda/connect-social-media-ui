@@ -1,3 +1,5 @@
+import { faPencil } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React from 'react'
 import { Link, Outlet, useLocation } from 'react-router-dom'
 
@@ -30,7 +32,7 @@ const Profile = () => {
         <div className='max-w-7xl mx-auto'>
             <div>
                 <div className='h-[10rem] relative md:h-[16rem] bg-black bg-opacity-30 z-10'>
-                    <img src="/connect.webp" alt="" className='w-full h-full object-cover -z-[1]' />
+                    <img src="/cover.webp" alt="" className='w-full h-full object-cover -z-[1]' />
                     <img src="/girl4.webp" alt="" className='w-32 h-32 rounded-full mx-auto absolute bottom-0 border-4 left-4 md:h-48 md:w-48' />
                 </div>
                 <div className='p-4'>
@@ -39,6 +41,12 @@ const Profile = () => {
                     <div className='flex gap-3'>
                         <p className='flex items-center'><span className='font-bold  rounded-full px-2 text-white bg-black text-[12px] text-center'>2k </span> followers</p>
                         <p className='flex items-center'><span className='font-bold  rounded-full px-2 text-white bg-black text-[12px] text-center'>50 </span> followings</p>
+                    </div>
+                </div>
+                <div>
+                    {/* Edit profile */}
+                    <div className='ml-4'>
+<button className='bg-[#acacac86] px-4 py-2 rounded-md disabled:cursor-not-allowed' disabled><FontAwesomeIcon icon={faPencil}/> Edit profile</button>
                     </div>
                 </div>
             </div>

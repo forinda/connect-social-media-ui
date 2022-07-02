@@ -2,30 +2,30 @@ export interface IAuthState {
 	isAuthenticated: boolean;
 	accessToken: string;
 	refreshToken: string;
-    loading: boolean;
-    error: string;
+	loading: boolean;
+	error: string;
 }
 
 export interface IUserState {
 	email: string;
 	username: string;
-	firstName?:string
-	lastName?:string
-	dob?:string
-	gender?:string
-	city?:string
-	zip?:string
-	country?:string
-	avatar?:any
-	followings: any
+	firstName?: string;
+	lastName?: string;
+	dob?: string;
+	gender?: string;
+	city?: string;
+	zip?: string;
+	country?: string;
+	avatar?: { [x: string]: string } | any;
+	followings: any;
 	followers: any;
 }
 
-export type IDiscoverState={
-	loading:boolean
-	error:any
-	people:IUserState[]
-}
+export type IDiscoverState = {
+	loading: boolean;
+	error: any;
+	people: IUserState[];
+};
 
 export interface IFeed {
 	author: any;
@@ -35,10 +35,8 @@ export interface IFeed {
 	tags: string;
 }
 
-export type IFeedsState={
-	loading:boolean
-	error:any
-	feeds:IFeed[]
-}
-
-
+export type IFeedsState = {
+	loading: boolean;
+	error: any;
+	feeds: IFeed[];
+};
