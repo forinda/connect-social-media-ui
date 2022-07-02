@@ -1,9 +1,10 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { IAuthState } from 'state/types';
 
-const initialState: IAuthState = {
+let initialState: IAuthState;
+initialState = {
 	accessToken: '',
-	isAuthenticated: true,
+	isAuthenticated: false,
 	error: '',
 	loading: false,
 	refreshToken: '',

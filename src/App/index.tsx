@@ -22,11 +22,15 @@ const App = () => {
               <Profile />
             </LoginRequired>
             }>
-              <Route index element={<ProfileAbout />} />
-              <Route path='followers' element={<ProfileFollowers />} />
-              <Route path='posts' element={<ProfilePosts />} />
-              <Route path='followings' element={<ProfileFollowings />} />
-            </Route>
+              <Route index element={
+                <LoginRequired>
+                  <ProfileAbout />
+                  </LoginRequired >} />
+                  <Route path='followers' element={<ProfileFollowers />} />
+                  <Route path='posts' element={<ProfilePosts />} />
+                  <Route path='followings' element={<ProfileFollowings />} />
+                </Route>
+
           </Routes>
         </BaseLayout>
       </Preloader>

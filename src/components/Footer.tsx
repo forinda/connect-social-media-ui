@@ -11,7 +11,9 @@ const Footer = () => {
                 </div>
                 <div className='h-96'>
                     {/* Intro video */}
-                    <video src="https://res.cloudinary.com/forinda/video/upload/v1656578791/video_jaxgsx.mp4" loop autoPlay controls controlsList={"play"} className='w-full h-full object-cover' ></video>
+                    <video
+                        src="https://res.cloudinary.com/forinda/video/upload/v1656578791/video_jaxgsx.mp4"  autoPlay controls controlsList={"play"}
+                           className='w-full h-full object-cover' ></video>
                 </div>
 
             </div>
