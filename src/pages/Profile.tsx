@@ -37,8 +37,8 @@ const Profile = () => {
                     <h2 className='text-2xl font-bold'>Jane Doe</h2>
                     <p>Lorem ipsum dolor sit amet consectetur.</p>
                     <div className='flex gap-3'>
-                        <p className='flex items-center'><span className='font-bold  rounded-full p-[4px] text-white bg-black text-[12px] text-center'>2k </span> followers</p>
-                        <p className='flex items-center'><span className='font-bold  rounded-full p-[4px] text-white bg-black text-[12px] text-center'>50 </span> followings</p>
+                        <p className='flex items-center'><span className='font-bold  rounded-full px-2 text-white bg-black text-[12px] text-center'>2k </span> followers</p>
+                        <p className='flex items-center'><span className='font-bold  rounded-full px-2 text-white bg-black text-[12px] text-center'>50 </span> followings</p>
                     </div>
                 </div>
             </div>

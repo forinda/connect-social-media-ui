@@ -1,6 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit';
 import userReducer from 'state/slices/userSlice';
 import authReducer from 'state/slices/authSlice';
+import discoverReducer from 'state/slices/discoverSlice';
+import feedsReducer from 'state/slices/feedsSlice';
+import followersReducer from 'state/slices/followersSlice';
+import followingsReducer from 'state/slices/followingsSlice';
 import {
 	persistStore,
 	persistReducer,
@@ -22,12 +26,16 @@ const persistConfig = {
 
 const rootReducer = persistReducer(
 	persistConfig,
-	combineReducers({ auth: authReducer, user: userReducer })
+	combineReducers({ auth: authReducer, user: userReducer }),
 );
 
 const store = configureStore({
 	reducer: {
 		root: rootReducer,
+		discover: discoverReducer,
+		followers: followersReducer,
+		followings: followingsReducer,
+		feeds: feedsReducer
 	},
 	middleware: (getDefaultMiddleware) =>
 		getDefaultMiddleware({

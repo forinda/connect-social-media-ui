@@ -20,3 +20,25 @@ export interface IUserState {
 	followings: any
 	followers: any;
 }
+
+export type IDiscoverState={
+	loading:boolean
+	error:any
+	people:IUserState[]
+}
+
+export interface IFeed {
+	author: any;
+	body: string;
+	media?: IMedia;
+	views: number;
+	tags: string;
+}
+
+export type IFeedsState={
+	loading:boolean
+	error:any
+	feeds:IFeed[]
+}
+
+
