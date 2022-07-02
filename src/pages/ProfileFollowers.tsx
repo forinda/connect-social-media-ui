@@ -1,9 +1,10 @@
-import React from 'react'
+import React from 'react';
+import ProfileFollowersComp from './ProfileFollowersComp';
 
 const ProfileFollowers = () => {
-  return (
-    <div>ProfileFollowers</div>
-  )
-}
+	return (
+		<ProfileFollowersComp follows={[1,2,3,4]}/>
+	);
+};
 
-export default ProfileFollowers
+export default ProfileFollowers;

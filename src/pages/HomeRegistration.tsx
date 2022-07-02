@@ -7,8 +7,8 @@ type HomeRegisterPageType = {
 }
 const HomeRegistration = ({ setPage }: HomeRegisterPageType) => {
   return (
-    <div className='grid grid-cols-2'>
-      <div className='flex justify-center items-center'>
+    <div className='grid md:grid-cols-2'>
+    <div className='hidden md:flex justify-center items-center'>
         <img src="/bg-home.svg" alt="" className='h-full w-full object-cover' />
       </div>
       <div className='h-screen bg-blue-700 p-10 flex flex-col gap-6 justify-center items-center'>
