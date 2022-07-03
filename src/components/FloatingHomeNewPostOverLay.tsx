@@ -86,9 +86,11 @@ const FloatingHomeNewPostOverLay = () => {
 		});
 		protectedAxios
 			.post('/feeds/new', feedState, {})
-			.then((res:AxiosResponse) => res.data)
-			.then((data:AxiosResponse['data']) => {
-				console.log(data);
+			.then((res: AxiosResponse) => res.data)
+			.then((data: AxiosResponse['data']) => {
+				toast.success('Post submitted successfully')
+				setFeedState({ body: '', image: null, tags: 'feed' })
+				setIsOpen(false)
 				// setIsOpen(false);
 			})
 			.catch((err: AxiosError) => {
