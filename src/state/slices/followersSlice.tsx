@@ -4,20 +4,7 @@ import { IDiscoverState as IFollowersState } from 'state/types';
 const initialState: IFollowersState = {
     loading: false
     , error: null,
-    people: [{
-        email: 'janeDoe@gmail.com',
-        username: 'janeDoe',
-        avatar: null,
-        followings: 4,
-        followers: null,
-        firstName: 'Jane',
-        lastName: 'Doe',
-        dob: '2022-10-10T12:23:43',
-        gender: 'male',
-        city: 'Nairobi',
-        zip: 'NA',
-        country: 'Kenya'
-    }]
+    people: []
 };
 
 const followersSlice = createSlice({

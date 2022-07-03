@@ -17,8 +17,10 @@ export interface IUserState {
 	zip?: string;
 	country?: string;
 	avatar?: { [x: string]: string } | any;
-	followings: any;
-	followers: any;
+	followings?: any;
+	followers?: any;
+	_id:string,
+	bio?:string
 }
 
 export type IDiscoverState = {
@@ -28,11 +30,13 @@ export type IDiscoverState = {
 };
 
 export interface IFeed {
+	[x:string]:any
 	author: any;
 	body: string;
 	media?: IMedia;
 	views: number;
 	tags: string;
+	_id:string
 }
 
 export type IFeedsState = {

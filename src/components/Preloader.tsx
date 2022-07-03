@@ -1,3 +1,4 @@
+import config from 'env';
 import React from 'react';
 import PageLoader from './PageLoader';
 
@@ -14,12 +15,13 @@ const Preloader = ({ children }: { children: React.ReactElement }) => {
 		offlineStatus();
 	});
 	return !loaded && isOnline ? (
-		<PageLoader/>
-	) : loaded && isOnline ? (
+		<PageLoader />
+	) : (loaded && isOnline) || (loaded && config.ENV === 'development') ? (
 		children
 	) : (
 		<div className='flex flex-col h-screen w-screen mx-auto items-center justify-center'>
-        </div>
+			<h2>You are offline</h2>
+		</div>
 	);
 };
 

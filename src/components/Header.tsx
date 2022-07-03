@@ -3,7 +3,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Link } from 'react-router-dom';
 import { faBars, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import NavDropDownLinks from './NavDropDownLinks';
+import { useAppSelector } from 'state/hooks';
 const Header = () => {
+	const {user}=useAppSelector(state=>state.root)
 	return (
 		<div className='h-16 shadow-xl flex items-center justify-between px-4 sticky top-0 bg-white z-[1020]'>
 			<div className='flex gap-2'>
@@ -37,10 +39,10 @@ const Header = () => {
 				</div>
 			</div>
 			<div className='flex gap-4 items-center'>
-				<div>
+				<div className='flex items-center'><span>{user.username}</span>
 					<Link to={'profile'}>
 						<img
-							src='/girl4.webp'
+							src={user.avatar.url?user.avatar.url:'/user.svg'}
 							alt=''
 							className='w-12 h-12 rounded-full'
 						/>

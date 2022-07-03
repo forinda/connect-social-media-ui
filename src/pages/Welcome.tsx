@@ -6,7 +6,6 @@ import { HomeFeeds } from './HomeFeeds'
 const Welcome = () => {
     const [page, setPage] = React.useState<HomepageTypes['page']>('home')
     const { isAuthenticated } = useAppSelector(state => state.root.auth)
-    console.log(isAuthenticated)
     return (
         isAuthenticated ? <HomeFeeds /> :
             <HomeSwitcher page={page} setPage={setPage} />
