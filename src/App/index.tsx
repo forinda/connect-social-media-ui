@@ -9,27 +9,35 @@ import ProfileFollowings from 'pages/ProfileFollowings'
 import BaseLayout from 'components/BaseLayout'
 import Preloader from 'components/Preloader'
 import LoginRequired from 'components/LoginRequired'
+import Discover from 'pages/Discover'
+import Meme from 'pages/Meme'
 
 const App = () => {
   return (
     <HashRouter>
-      <Preloader>
-        <BaseLayout>
-          <Routes>
-            <Route index element={<Welcome />} />
-            <Route path='profile' element={
-            <LoginRequired>
-              <Profile />
-            </LoginRequired>
-            }>
-              <Route index element={<ProfileAbout />} />
-              <Route path='followers' element={<ProfileFollowers />} />
-              <Route path='posts' element={<ProfilePosts />} />
-              <Route path='followings' element={<ProfileFollowings />} />
-            </Route>
-          </Routes>
-        </BaseLayout>
-      </Preloader>
+       <Preloader>
+      <BaseLayout>
+           <Routes>
+             <Route index element={<Welcome />} />
+             <Route path='meme' element={<Meme />} />
+           <Route path='profile' element={
+             <LoginRequired>  
+              <Profile /> 
+          </LoginRequired> 
+             }> 
+               <Route index element={ 
+                <LoginRequired>
+                  <ProfileAbout />
+                   </LoginRequired >} />
+                   <Route path='followers' element={<ProfileFollowers />} />
+                   <Route path='posts' element={<ProfilePosts />} />
+                   <Route path='followings' element={<ProfileFollowings />} />
+                   <Route path='discover' element={<Discover />} />
+                 </Route>  
+
+           </Routes>
+       </BaseLayout>
+    </Preloader> 
     </HashRouter>
   )
 }

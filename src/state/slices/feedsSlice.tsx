@@ -4,11 +4,7 @@ import { IFeedsState } from 'state/types';
 const initialState: IFeedsState = {
     loading: false
     , error: null,
-    feeds: [{
-        author: '',
-        body: '', tags: '',
-        views: 4, media: null
-    }]
+    feeds: []
 };
 
 const feedsSlice = createSlice({

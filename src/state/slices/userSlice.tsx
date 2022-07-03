@@ -2,18 +2,19 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { IUserState } from 'state/types';
 
 const initialState: IUserState = {
-	email: 'janeDoe@gmail.com',
-	username: 'janeDoe',
+	email: '',
+	username: '',
 	avatar: null,
-	followings: 4,
-	followers: null,
-	firstName: 'Jane',
-	lastName: 'Doe',
-	dob: '2022-10-10T12:23:43',
-	gender: 'male',
-	city: 'Nairobi',
-	zip: 'NA',
-	country: 'Kenya'
+	followings: 0,
+	followers: 0,
+	firstName:'',
+	lastName: '',
+	dob: '',
+	gender: '',
+	city: '',
+	zip: '',
+	country: '',
+	_id:''
 };
 
 const userSlice = createSlice({

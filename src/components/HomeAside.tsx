@@ -8,8 +8,8 @@ const HomeAside = () => {
 				<h2>Friend requests</h2>
 				<hr />
 				<ul className='py-2'>
-					{[1, 2, 3].map((friend) => (
-						<li className='flex items-center gap-2 border-b py-1'>
+					{[1, 2, 3].map((friend,index) => (
+						<li className='flex items-center gap-2 border-b py-1' key={index}>
 							<div className='h-12 w-12 rounded-full overflow-hidden'>
 								<img
 									src='/girl4.webp'
@@ -29,8 +29,8 @@ const HomeAside = () => {
 				<h2>Friends</h2>
 				<hr />
 				<ul className='py-2'>
-					{[1, 2, 3].map((friend) => (
-						<li className='flex items-center gap-2 border-b py-1'>
+					{[1, 2, 3].map((friend,index) => (
+						<li className='flex items-center gap-2 border-b py-1' key={index}>
 							<div className='h-12 w-12 rounded-full overflow-hidden'>
 								<img
 									src='/girl4.webp'

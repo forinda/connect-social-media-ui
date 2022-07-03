@@ -7,4 +7,4 @@ const baseAxios = axios.create({
 
 export { baseAxios };
 
-console.log(config);
+export default  Object.freeze({baseAxios})

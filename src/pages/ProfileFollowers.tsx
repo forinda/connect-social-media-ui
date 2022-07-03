@@ -1,9 +1,11 @@
 import React from 'react';
-import ProfileFollowersComp from './ProfileFollowersComp';
+import { useAppSelector } from 'state/hooks';
+import ProfileFollowersComp from '../components/ProfileFollowersComp';
 
 const ProfileFollowers = () => {
+	const {people}=useAppSelector(state=>state.followers)
 	return (
-		<ProfileFollowersComp follows={[1,2,3,4]}/>
+		<ProfileFollowersComp follows={people}/>
 	);
 };
 

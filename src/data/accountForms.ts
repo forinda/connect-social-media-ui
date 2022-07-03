@@ -1,4 +1,12 @@
-export const registerForm = [
+type InputTypes ={
+	[x:string|symbol]:any
+	name: string,
+	required: boolean,
+	placeholder: string,
+	label: string,
+	type: string,
+}
+export const registerForm :InputTypes[]= [
 	{
 		name: 'username',
 		required: true,
@@ -28,7 +36,7 @@ export const registerForm = [
 		type: 'password',
 	},
 ];
-export const loginFields = [
+export const loginFields:InputTypes[] = [
 	{
 		name: 'username',
 		required: true,
