@@ -4,7 +4,7 @@ import ProfileFollowersComp from '../components/ProfileFollowersComp';
 
 const ProfileFollowings = () => {
   const {people}=useAppSelector(state=>state.followings)
-  return (<ProfileFollowersComp follows={people}/>
+  return (<ProfileFollowersComp title='followings' follows={people}/>
 );
 }
 

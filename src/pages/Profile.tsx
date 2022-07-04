@@ -9,6 +9,7 @@ import { useAppDispatch, useAppSelector } from 'state/hooks';
 import { loadingDiscoverStart, loadingDiscoverSuccess, loadDiscoverFailure } from 'state/slices/discoverSlice';
 import { loadingFollowersStart, loadingFollowersSuccess, loadFollowersFailure } from 'state/slices/followersSlice';
 import { loadingFollowingsStart, loadingFollowingsSuccess, loadFollowingsFailure } from 'state/slices/followingsSlice';
+import { loadPeronalPostsFailure, loadPersonalPostsStart, loadPersonalPostsSuccess } from 'state/slices/personalPosts';
 
 const links = [
 	{
@@ -52,50 +53,67 @@ const Profile = () => {
 			Authorization: `Bearer ${accessToken}`,
 		},
 	});
+	const loadFollowers = () => {
+		dispatch(loadingFollowersStart());
+		protectedAxios
+			.get('/users/followers')
+			.then((res: AxiosResponse) => res.data)
+			.then((data: AxiosResponse['data']) => {
+				dispatch(loadingFollowersSuccess(data));
+			})
+			.catch((err: AxiosError) => {
+				dispatch(loadFollowersFailure());
+			});
+	};
+
+	const loadUserPosts = () => {
+		console.log("User posts");
+		
+		dispatch(loadPersonalPostsStart());
+		protectedAxios
+			.get('/feeds/user/feeds')
+			.then((res: AxiosResponse) => res.data)
+			.then((data: AxiosResponse['data']) => {
+				console.log(data);
+				
+				dispatch(loadPersonalPostsSuccess(data));
+			})
+			.catch((err: AxiosError) => {
+				dispatch(loadPeronalPostsFailure());
+			});
+	};
+
+	const loadDiscover = () => {
+		dispatch(loadingDiscoverStart());
+		protectedAxios
+			.get('/users')
+			.then((res: AxiosResponse) => res.data)
+			.then((data: AxiosResponse['data']) => {
+				dispatch(loadingDiscoverSuccess(data));
+			})
+			.catch((err: AxiosError) => {
+				dispatch(loadDiscoverFailure());
+			});
+	};
+
+	const loadFollowings = () => {
+		dispatch(loadingFollowingsStart());
+		protectedAxios
+			.get('/users/followings')
+			.then((res: AxiosResponse) => res.data)
+			.then((data: AxiosResponse['data']) => {
+				dispatch(loadingFollowingsSuccess(data));
+			})
+			.catch((err: AxiosError) => {
+				dispatch(loadFollowingsFailure());
+			});
+	};
 	React.useEffect(() => {
-		const loadFollowers = () => {
-			dispatch(loadingFollowersStart());
-			protectedAxios
-				.get('/users/followers')
-				.then((res: AxiosResponse) => res.data)
-				.then((data: AxiosResponse['data']) => {
-					dispatch(loadingFollowersSuccess(data));
-				})
-				.catch((err: AxiosError) => {
-					dispatch(loadFollowersFailure());
-				});
-		};
-
-		const loadDiscover = () => {
-			dispatch(loadingDiscoverStart());
-			protectedAxios
-				.get('/users')
-				.then((res: AxiosResponse) => res.data)
-				.then((data: AxiosResponse['data']) => {
-					dispatch(loadingDiscoverSuccess(data));
-				})
-				.catch((err: AxiosError) => {
-					dispatch(loadDiscoverFailure());
-				});
-		};
-
-		const loadFollowings = () => {
-			dispatch(loadingFollowingsStart());
-			protectedAxios
-				.get('/users/followings')
-				.then((res: AxiosResponse) => res.data)
-				.then((data: AxiosResponse['data']) => {
-					dispatch(loadingFollowingsSuccess(data));
-				})
-				.catch((err: AxiosError) => {
-					dispatch(loadFollowingsFailure());
-				});
-		};
-
+		loadUserPosts()
 		loadFollowers();
 		loadFollowings();
 		loadDiscover();
-	},[]);
+	}, []);
 	return (
 		<div className='max-w-7xl mx-auto'>
 			<div>
@@ -141,7 +159,7 @@ const Profile = () => {
 					</div>
 				</div>
 			</div>
-			<div className='flex border-b border-slate-300 gap-4 py-1 text-center px-4'>
+			<div className='w-full overflow-x-scroll flex border-b border-slate-300 gap-2 py-1 text-center px-4'>
 				{links.map((link, index) => (
 					<Link
 						key={index}
