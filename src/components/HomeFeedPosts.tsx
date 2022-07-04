@@ -23,7 +23,7 @@ const HomeFeedPosts = () => {
 								<img
 									src={post.media.url ? post.media.url : '/post.webp'}
 									alt=''
-									className='w-full h-full object-cover'
+									className='w-full h-full object-contain'
 								/>
 							</div>
 						)}
