@@ -10,7 +10,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import React from 'react';
 import axios, { AxiosError, AxiosResponse } from 'axios';
 import config from 'env';
-import { useAppSelector } from 'state/hooks';
+import { useAppDispatch, useAppSelector } from 'state/hooks';
 
 type Feed = {
 	[x: string]: any;
@@ -20,6 +20,8 @@ type Feed = {
 };
 
 const FloatingHomeNewPostOverLay = () => {
+	const dispatch = useAppDispatch()
+	const [loading, setIsLoading] = React.useState<boolean>(false)
 	const { accessToken } = useAppSelector((state) => state.root.auth);
 	const [isOpen, setIsOpen] = React.useState<boolean>(false);
 	const [feedState, setFeedState] = React.useState<Feed>({
@@ -70,6 +72,16 @@ const FloatingHomeNewPostOverLay = () => {
 			[e.target.name]: e.target.value,
 		}));
 	};
+	window.addEventListener('keydown', (e) => {
+		console.log(e.key);
+
+		if (e.key === 'Escape') {
+			e.preventDefault();
+			setFeedState({ body: '', image: null, tags: 'feed' });
+			setImage('');
+			setIsOpen(false);
+		}
+	})
 	const cancelPost = (e: React.MouseEvent<HTMLButtonElement>) => {
 		e.preventDefault();
 		setFeedState({ body: '', image: null, tags: 'feed' });
@@ -82,12 +94,15 @@ const FloatingHomeNewPostOverLay = () => {
 			baseURL: config.BACKEND_BASE_URL,
 			headers: {
 				Authorization: `Bearer ${accessToken}`,
+				'Content-Type': 'multipart/form-data'
 			},
 		});
+		setIsLoading(true)
 		protectedAxios
 			.post('/feeds/new', feedState, {})
 			.then((res: AxiosResponse) => res.data)
 			.then((data: AxiosResponse['data']) => {
+				data && setIsLoading(false)
 				toast.success('Post submitted successfully')
 				setFeedState({ body: '', image: null, tags: 'feed' })
 				setIsOpen(false)
@@ -95,11 +110,12 @@ const FloatingHomeNewPostOverLay = () => {
 			})
 			.catch((err: AxiosError) => {
 				toast.error((err.response?.data as any).message);
+				setIsLoading(false)
 			});
 	};
 
 	return (
-		<div className=''>
+		<div className=' overflow-y-scroll'>
 			<dialog
 				className={
 					isOpen
@@ -122,7 +138,7 @@ const FloatingHomeNewPostOverLay = () => {
 							<img
 								src={image}
 								alt=''
-								className='w-full max-h-40 object-contain '
+								className='w-[18rem] max-h-[aspect-ratio] object-cover '
 							/>
 						</div>
 					)}
@@ -151,7 +167,7 @@ const FloatingHomeNewPostOverLay = () => {
 							<FontAwesomeIcon icon={faImage} />
 							image
 						</label>
-						<button className={actionstyle} type='submit'>
+						<button className={actionstyle} type='submit' disabled={loading}>
 							<FontAwesomeIcon icon={faPaperPlane} /> Post
 						</button>
 						<button className={actionstyle} onClick={cancelPost}>
