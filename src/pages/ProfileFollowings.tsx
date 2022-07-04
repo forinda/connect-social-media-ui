@@ -8,4 +8,4 @@ const ProfileFollowings = () => {
 );
 }
 
-export default ProfileFollowings
+export default React.memo(ProfileFollowings)

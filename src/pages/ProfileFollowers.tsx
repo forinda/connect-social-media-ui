@@ -3,10 +3,10 @@ import { useAppSelector } from 'state/hooks';
 import ProfileFollowersComp from '../components/ProfileFollowersComp';
 
 const ProfileFollowers = () => {
-	const {people}=useAppSelector(state=>state.followers)
+	const { people } = useAppSelector(state => state.followers)
 	return (
-		<ProfileFollowersComp follows={people}/>
+		<ProfileFollowersComp follows={people} />
 	);
 };
 
-export default ProfileFollowers;
+export default React.memo(ProfileFollowers);

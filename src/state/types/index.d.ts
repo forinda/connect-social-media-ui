@@ -31,7 +31,7 @@ export type IDiscoverState = {
 
 export interface IFeed {
 	[x:string]:any
-	author: any;
+	author?: IUserState;
 	body: string;
 	media?: IMedia;
 	views: number;
