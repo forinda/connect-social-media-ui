@@ -90,7 +90,7 @@ const FloatingHomeNewPostOverLay = () => {
 		e.preventDefault();
 		const protectedAxios = axios.create({
 			baseURL: config.BACKEND_BASE_URL,
-			headers: {
+			headers: {                                                                                                                 
 				Authorization: `Bearer ${accessToken}`,
 				'Content-Type': 'multipart/form-data'
 			},

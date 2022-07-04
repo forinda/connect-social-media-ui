@@ -3,6 +3,7 @@ import userReducer from 'state/slices/userSlice';
 import authReducer from 'state/slices/authSlice';
 import discoverReducer from 'state/slices/discoverSlice';
 import feedsReducer from 'state/slices/feedsSlice';
+import personalPostsReducer from 'state/slices/personalPosts';
 import followersReducer from 'state/slices/followersSlice';
 import followingsReducer from 'state/slices/followingsSlice';
 import {
@@ -35,7 +36,8 @@ const store = configureStore({
 		discover: discoverReducer,
 		followers: followersReducer,
 		followings: followingsReducer,
-		feeds: feedsReducer
+		feeds: feedsReducer,
+		personalPosts: personalPostsReducer
 	},
 	middleware: (getDefaultMiddleware) =>
 		getDefaultMiddleware({

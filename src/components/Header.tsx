@@ -7,16 +7,15 @@ import { useAppSelector } from 'state/hooks';
 const Header = () => {
 	const { user } = useAppSelector(state => state.root)
 	return (
-		<div className='h-16 shadow-xl flex items-center justify-between px-4 sticky top-0 bg-white z-[1020]'>
+		<div className='h-16 shadow-xl flex items-center justify-between px-1 md:px-4 sticky top-0 bg-white z-[1020]'>
 			<div className='flex gap-2'>
 				<Link to={'/'}>
-					<div className='flex items-center gap-1'>
+					<div className='hidden sm:flex items-center gap-1'>
 						<img
 							src='/logo512.png'
 							alt=''
 							className='w-8 h-8 md:w-10 md:h-10 object-cover rounded-full '
 						/>
-						{/* <p className='uppercase font-bold hidden md:block'>Connect</p> */}
 					</div>
 				</Link>
 				<div className='flex items-center md:hidden group relative px-4'>
@@ -39,7 +38,7 @@ const Header = () => {
 				</div>
 			</div>
 			<div className='flex gap-4 items-center'>
-				<div className='flex items-center'><span>{user.username}</span>
+				<div className='flex items-center'>
 					<Link to={'profile'}>
 						<img
 							src={(user.avatar as any).url! ? (user.avatar as any).url! : '/user.svg'}
