@@ -2,7 +2,6 @@ import { useAppSelector } from 'state/hooks';
 
 const HomeFeedPosts = () => {
 	const { feeds } = useAppSelector((state) => state.feeds);
-	console.log(feeds);
 
 	return (
 		<div className='w-full md:p-4'>
