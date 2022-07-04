@@ -42,7 +42,7 @@ const Header = () => {
 				<div className='flex items-center'><span>{user.username}</span>
 					<Link to={'profile'}>
 						<img
-							src={user.avatar.url?user.avatar.url:'/user.svg'}
+							src={user.avatar.url!?user.avatar.url!:'/user.svg'}
 							alt=''
 							className='w-12 h-12 rounded-full'
 						/>
