@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { faPencil } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import axios, { AxiosResponse, AxiosError } from 'axios';
@@ -94,7 +95,7 @@ const Profile = () => {
 		loadFollowers();
 		loadFollowings();
 		loadDiscover();
-	});
+	},[]);
 	return (
 		<div className='max-w-7xl mx-auto'>
 			<div>
