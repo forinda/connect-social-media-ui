@@ -10,7 +10,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import React from 'react';
 import axios, { AxiosError, AxiosResponse } from 'axios';
 import config from 'env';
-import { useAppDispatch, useAppSelector } from 'state/hooks';
+import {  useAppSelector } from 'state/hooks';
 
 type Feed = {
 	[x: string]: any;
@@ -20,7 +20,6 @@ type Feed = {
 };
 
 const FloatingHomeNewPostOverLay = () => {
-	const dispatch = useAppDispatch()
 	const [loading, setIsLoading] = React.useState<boolean>(false)
 	const { accessToken } = useAppSelector((state) => state.root.auth);
 	const [isOpen, setIsOpen] = React.useState<boolean>(false);

@@ -1,11 +1,3 @@
-import {
-	faEye,
-	faHeart,
-	faMessage,
-	faThumbsUp,
-} from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React from 'react';
 import { useAppSelector } from 'state/hooks';
 
 const HomeFeedPosts = () => {
