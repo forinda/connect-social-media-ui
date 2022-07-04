@@ -72,7 +72,6 @@ const FloatingHomeNewPostOverLay = () => {
 		}));
 	};
 	window.addEventListener('keydown', (e) => {
-		console.log(e.key);
 
 		if (e.key === 'Escape') {
 			e.preventDefault();

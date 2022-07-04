@@ -16,7 +16,6 @@ const Meme = () => {
 	React.useEffect(() => {
 		if (memeImage && imageUrl) {
 			const ctx = canvasRef.current?.getContext('2d');
-            console.log(memeImage);
 			ctx!.fillStyle = 'black';
 			ctx?.fillRect(0, 0, 400, 256 + 80);
 			ctx?.drawImage(memeImage, (400 - 256) / 2, 500);
