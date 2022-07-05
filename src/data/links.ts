@@ -29,6 +29,11 @@ export const links = {
 			path: '/profile/followings',
 			icon: faUsersCog,
 			title: 'Followings',
+		},{
+			id: 5,
+			path: '/meme',
+			icon: faFeed,
+			title: 'cat Meme',
 		},
 		{ id: 6, path: '/profile/timeline', icon: faFeed, title: 'Posts' },
 	],

@@ -23,7 +23,7 @@ const Preloader = ({ children }: { children: React.ReactElement }) => {
 
 		})
 	}, [])
-	return !loaded && isOnline ? (
+	return !loaded? (
 		<PageLoader />
 	) : (loaded && isOnline) || (loaded && config.ENV === 'development') ? (
 		children
