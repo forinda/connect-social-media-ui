@@ -7,7 +7,6 @@ import { IUserState } from 'state/types';
 const Discover = () => {
 	const {
 		discover,
-		root: { user },
 		followings,
 		followers
 	} = useAppSelector((state) => state);
@@ -17,8 +16,8 @@ const Discover = () => {
 		const followersSlice = followers.people.slice()
 		console.log(followersSlice);
 		console.log(followingsSlice);
-		
-		const filtered = discover.people.filter((person => !(!followersSlice.find(p1 => p1._id === person._id) || user._id === person._id || followingsSlice.find(p2 => p2._id === person._id))))
+
+		const filtered = discover.people.filter((person => !(!followersSlice.find(p1 => p1._id === person._id) || followingsSlice.find(p2 => p2._id === person._id))))
 		setFilteredUsers([...filtered])
 	}
 
