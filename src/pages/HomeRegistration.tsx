@@ -5,7 +5,9 @@ import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import React from 'react'
 import { AxiosError } from "axios";
-import {baseAxios} from "../api";
+import { baseAxios } from "../api";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 
 const validate = (values: RegistrationDataStateType) => {
     const errors: { [x: string]: any } = {};
@@ -69,6 +71,7 @@ const HomeRegistration = ({ setPage }: HomeRegisterPageType) => {
             })
         },
     })
+    const [showPassword, setShowPassword] = React.useState<boolean>(false)
 
     return (
 
@@ -87,12 +90,29 @@ const HomeRegistration = ({ setPage }: HomeRegisterPageType) => {
                 >
                     {
                         registerForm.map((field) => (
-                            <div className='flex flex-col w-full' key={field.name}>
-                                <label htmlFor={field.name}
-                                    className='text-white font-bold text-xl'>{field.label}</label>
-                                <input {...field} onChange={formik.handleChange} onBlur={formik.handleBlur}
-                                    value={formik.values[field.name]}
-                                    className="focus:right-0 border rounded" />
+                            (field.name === 'password' || field.name === 'confirmPassword') ? <div className='flex flex-col w-full' key={field.name}>
+                                <label htmlFor={field.name} className='text-white font-bold text-xl'>{field.label}</label>
+                                <div className='flex bg-white items-center'>
+                                    <input {...field} value={formik.values[field.name]} type={showPassword ? 'text' : 'password'} onChange={formik.handleChange} onBlur={formik.handleBlur} className="focus:ring-0 border-none outline-none rounded-sm w-full" />
+                                    <span onClick={e => {
+                                        e.preventDefault()
+                                        setShowPassword(!showPassword)
+
+                                    }}
+                                        className="px-2 cursor-pointer"
+                                    >
+                                        {showPassword ? <FontAwesomeIcon icon={faEye} /> : <FontAwesomeIcon icon={faEyeSlash} />}
+                                    </span>
+                                </div>
+                                {formik.errors[field.name] ?
+                                    <div className={'text-red-500'}>{
+                                        (formik.errors as unknown as any)[field.name]
+                                    }</div> :
+                                    <React.Fragment></React.Fragment>
+                                }
+                            </div> : <div className='flex flex-col w-full' key={field.name}>
+                                <label htmlFor={field.name} className='text-white font-bold text-xl'>{field.label}</label>
+                                <input {...field} value={formik.values[field.name]} onChange={formik.handleChange} onBlur={formik.handleBlur} className="focus:right-0 border rounded-sm" />
                                 {formik.errors[field.name] ?
                                     <div className={'text-red-500'}>{
                                         (formik.errors as unknown as any)[field.name]
