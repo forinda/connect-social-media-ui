@@ -11,33 +11,34 @@ import Preloader from 'components/Preloader'
 import LoginRequired from 'components/LoginRequired'
 import Discover from 'pages/Discover'
 import Meme from 'pages/Meme'
+import NotFound from 'pages/NotFound'
 
 const App = () => {
   return (
     <HashRouter>
-       <Preloader>
-      <BaseLayout>
-           <Routes>
-             <Route index element={<Welcome />} />
-             <Route path='meme' element={<Meme />} />
-           <Route path='profile' element={
-             <LoginRequired>  
-              <Profile /> 
-          </LoginRequired> 
-             }> 
-               <Route index element={ 
+      <Preloader>
+        <BaseLayout>
+          <Routes>
+            <Route index element={<Welcome />} />
+            <Route path='meme' element={<Meme />} />
+            <Route path='profile' element={
+              <LoginRequired>
+                <Profile />
+              </LoginRequired>
+            }>
+              <Route index element={
                 <LoginRequired>
                   <ProfileAbout />
-                   </LoginRequired >} />
-                   <Route path='followers' element={<ProfileFollowers />} />
-                   <Route path='posts' element={<ProfilePosts />} />
-                   <Route path='followings' element={<ProfileFollowings />} />
-                   <Route path='discover' element={<Discover />} />
-                 </Route>  
-
-           </Routes>
-       </BaseLayout>
-    </Preloader> 
+                </LoginRequired >} />
+              <Route path='followers' element={<ProfileFollowers />} />
+              <Route path='posts' element={<ProfilePosts />} />
+              <Route path='followings' element={<ProfileFollowings />} />
+              <Route path='discover' element={<Discover />} />
+            </Route>
+            <Route path='*' element={<NotFound />} />
+          </Routes>
+        </BaseLayout>
+      </Preloader>
     </HashRouter>
   )
 }
