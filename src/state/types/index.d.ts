@@ -16,7 +16,7 @@ export interface IUserState {
 	city?: string;
 	zip?: string;
 	country?: string;
-	avatar: string
+	avatar: any
 	followings?: any;
 	followers?: any;
 	_id:string,
