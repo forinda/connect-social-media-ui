@@ -20,7 +20,7 @@ import { combineReducers } from 'redux';
 import storage from 'redux-persist/lib/storage';
 
 const persistConfig = {
-	key: 'o-web-connect-state',
+	key: 'o-web-connect-state-2',
 	version: 1,
 	storage,
 };
