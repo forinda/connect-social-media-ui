@@ -67,6 +67,7 @@ export const HomeFeeds = () => {
 				.get('/feeds')
 				.then((res: AxiosResponse) => res.data)
 				.then((data: AxiosResponse['data']) => {
+					console.log(data)
 					dispatch(loadingFeedsSuccess(data));
 				})
 				.catch((err: AxiosError) => {
