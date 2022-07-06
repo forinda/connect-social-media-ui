@@ -16,7 +16,7 @@ export interface IUserState {
 	city?: string;
 	zip?: string;
 	country?: string;
-	avatar?: { [x: string]: string } | any;
+	avatar: string
 	followings?: any;
 	followers?: any;
 	_id:string,
@@ -31,11 +31,12 @@ export type IDiscoverState = {
 
 export interface IFeed {
 	[x:string]:any
-	author?: IUserState;
+	author: IUserState;
 	body: string;
 	media?: IMedia;
 	views: number;
 	tags: string;
+	createdAt:Date
 	_id:string
 }
 

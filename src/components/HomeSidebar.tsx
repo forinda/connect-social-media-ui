@@ -15,7 +15,7 @@ const HomeSidebar = () => {
 			<div className='flex items-center bg-slate-700 bg-opacity-10 px-2 py-2 rounded-lg gap-2'>
 				<div className='w-12 h-12 rounded-full overflow-hidden'>
 					<img
-						src={avatar?.['url'] ? avatar?.['url']! : '/user.svg'}
+						src={avatar ? avatar! : '/user.svg'}
 						alt=''
 						className='w-full h-full bg-white  object-cover'
 					/>
@@ -28,7 +28,7 @@ const HomeSidebar = () => {
 			<hr />
 			{/* Quick links */}
 			<div className=''>
-			<ul className='flex flex-col gap-2'>
+				<ul className='flex flex-col gap-2'>
 					{links.sidebar.map((link) => (
 						<li key={link.id}>
 							<Link

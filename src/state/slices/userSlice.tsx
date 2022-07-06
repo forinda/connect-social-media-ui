@@ -4,7 +4,7 @@ import { IUserState } from 'state/types';
 const initialState: IUserState = {
 	email: '',
 	username: '',
-	avatar: null,
+	avatar: '',
 	followings: 0,
 	followers: 0,
 	firstName:'',
@@ -27,7 +27,7 @@ const userSlice = createSlice({
 			state.username = action.payload.username;
 		},
 		unsetUser: (state) => {
-			state.avatar = null;
+			state.avatar = '';
 			state.email = '';
 			state.username = '';
 		},
