@@ -67,8 +67,6 @@ const Profile = () => {
 	};
 
 	const loadUserPosts = () => {
-		console.log("User posts");
-		
 		dispatch(loadPersonalPostsStart());
 		protectedAxios
 			.get('/feeds/user/feeds')
@@ -124,7 +122,7 @@ const Profile = () => {
 						className='w-full h-full object-cover -z-[1]'
 					/>
 					<img
-						src={user.avatar.url ? user.avatar.url : '/user.svg'}
+						src={user.avatar!=="" ? user.avatar : '/user.svg'}
 						alt=''
 						className='w-32 h-32 rounded-full mx-auto absolute bg-white bottom-0 border-4 left-4 md:h-48 md:w-48'
 					/>

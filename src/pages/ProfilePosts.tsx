@@ -11,7 +11,7 @@ const ProfilePosts = () => {
           {/* User */}
           <div className='flex gap-4 items-center px-4 py-1 border-b'>
             <div>
-              <img src={blog.author?.avatar.url ? blog.author?.avatar.url : '/user.svg'} alt="" className='h-16 w-16 rounded-full' />
+              <img src={blog.author?.avatar ? blog.author?.avatar : '/user.svg'} alt="" className='h-16 w-16 rounded-full' />
             </div>
             <div>
               <h2>{user.username}</h2>

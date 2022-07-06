@@ -13,7 +13,7 @@ const ProfileFollowersComp = ({ follows, title }: FollowProps) => {
                     <div className='flex items-center gap-4'>
                         <div>
                             <img
-                                src={person.avatar.url ? person.avatar.url : '/user.svg'}
+                                src={person.avatar ? person.avatar : '/user.svg'}
                                 alt=''
                                 className='w-20 h-20 rounded-full'
                             />
