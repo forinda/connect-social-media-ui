@@ -72,7 +72,6 @@ const Profile = () => {
 			.get('/feeds/user/feeds')
 			.then((res: AxiosResponse) => res.data)
 			.then((data: AxiosResponse['data']) => {
-				console.log(data);
 				
 				dispatch(loadPersonalPostsSuccess(data));
 			})
