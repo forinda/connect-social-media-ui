@@ -12,6 +12,8 @@ import LoginRequired from 'components/LoginRequired'
 import Discover from 'pages/Discover'
 import Meme from 'pages/Meme'
 import NotFound from 'pages/NotFound'
+import UserSingleChat from 'pages/UserSingleChat'
+import UserChats from 'pages/UserChats'
 
 const App = () => {
   return (
@@ -20,12 +22,16 @@ const App = () => {
         <BaseLayout>
           <Routes>
             <Route index element={<Welcome />} />
+            <Route path='chat' element={<UserChats />} >
+              <Route index element={<UserSingleChat />} />
+            </Route>
             <Route path='meme' element={<Meme />} />
             <Route path='profile' element={
               <LoginRequired>
                 <Profile />
               </LoginRequired>
             }>
+
               <Route index element={
                 <LoginRequired>
                   <ProfileAbout />
